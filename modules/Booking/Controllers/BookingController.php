@@ -164,15 +164,8 @@ class BookingController extends \App\Http\Controllers\Controller
             $user->save();
 
             $booking->addMeta('locale', app()->getLocale());
-            // Cart::destroy();
-            // if($payment_gateway == 'easypaisa'){
-            //     $request->session()->put('easypaisa_booking', $booking);
-            //     return response()->json(['session' => 'easypaisa_booking']);
-            //     // $token = $gatewayObj->process($request, $booking);
-            //     // return redirect()->route('booking.easypaisa.confirm',['token'=>$token]);
-            // }else{
+            Cart::destroy();
             return $gatewayObj->process($request, $booking);
-            // }
 
         }catch (\Exception $exception)
         {
