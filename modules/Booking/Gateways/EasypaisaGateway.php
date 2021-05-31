@@ -179,7 +179,7 @@ class EasypaisaGateway extends BaseGateway
     {
         // $post_data = $this->getAuthToken();
         $data['auth_token'] = '';
-        $data['postBackURL'] = 'http://gafoor.loc/booking/confirm/easypaisa';
+        $data['postBackURL'] = env('APP_URL').'/booking/confirm/easypaisa';
         return view("Booking::frontend.gateways.easypaisa_autosubmit", compact('data'));
     }
     public function getAuthToken($booking)
@@ -195,7 +195,7 @@ class EasypaisaGateway extends BaseGateway
         $post_data =  array(
             "storeId" 			=> 70126,
             "amount" 			=> $amount,
-            "postBackURL" 		=> 'http://gafoor.loc/booking/confirm/easypaisa',
+            "postBackURL" 		=> env('APP_URL').'/booking/confirm/easypaisa',
             "orderRefNum" 		=> $orderRefNum,
             "expiryDate" 		=> $expiryDate, 	  	//Optional
             "merchantHashedReq" => "",				  	//Optional

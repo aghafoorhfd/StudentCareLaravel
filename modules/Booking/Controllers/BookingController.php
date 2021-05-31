@@ -30,7 +30,6 @@ class BookingController extends \App\Http\Controllers\Controller
         // $authToken = $test->getAuthToken();
         // echo $authToken; die;
         // $test->verifyToken($authToken); die;
-
         if(!Cart::count()){
             return redirect()->route('booking.cart');
         }
@@ -49,7 +48,6 @@ class BookingController extends \App\Http\Controllers\Controller
 
     public function cart()
     {
-
         $data = [
             'page_title' => __('Cart'),
             'user'       => Auth::user(),

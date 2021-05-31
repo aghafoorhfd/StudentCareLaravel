@@ -156,7 +156,6 @@
             }
 
             $data['attributes'] = $this->attributesClass::where('service', 'course')->with(['terms','translations'])->get();
-
             return view('Course::frontend.search', $data);
         }
 
@@ -201,6 +200,7 @@
                 'is_student'=>$is_student
             ];
             $this->setActiveMenu($row);
+            echo '<pre>';print_r($data); die;
             return view('Course::frontend.detail', $data);
         }
     }
