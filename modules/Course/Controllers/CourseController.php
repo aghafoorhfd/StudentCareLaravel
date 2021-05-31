@@ -200,7 +200,6 @@
                 'is_student'=>$is_student
             ];
             $this->setActiveMenu($row);
-            echo '<pre>';print_r($data); die;
             return view('Course::frontend.detail', $data);
         }
     }
