@@ -179,7 +179,6 @@
                 ->orderBy("display_order", "asc")
                 ->get();
 
-            // print_r(Auth::user()); die;
             $is_student = false;
             if(Auth::check()){
                 $is_student = Auth::user()->isStudentOf($row->id);
@@ -200,6 +199,7 @@
                 'is_student'=>$is_student
             ];
             $this->setActiveMenu($row);
+            // echo '<pre>';print_r($section_list); die;
             return view('Course::frontend.detail', $data);
         }
     }

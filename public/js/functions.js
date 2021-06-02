@@ -243,7 +243,11 @@ $(document).on('click','.preview_url_lesson',function(e){
     let title_name = $(this).data('title');
     var args = {};
     args.title = '<b>'+title_name+'</b>';
-    args.message = '<iframe class="iframe_video" height="300" src="'+preview_url+'" frameborder="0" allowfullscreen></iframe>';
+    if(preview_url.includes('uploads')){
+        args.message = '<video width="100%" height="100%" controls><source src="'+preview_url+'" type="video/mp4">Your browser does not support the video tag.</video>';
+    }else{
+        args.message = '<iframe class="iframe_video" height="300" src="'+preview_url+'" frameborder="0" allowfullscreen></iframe>';
+    }
     args.centerVertical = true;
     args.size = 'lg';
     bootbox.alert(args);

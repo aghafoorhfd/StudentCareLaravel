@@ -18,7 +18,8 @@ class Lessons extends BaseModel
         'active',
         'url',
         'type',
-        'preview_url'
+        'preview_url',
+        'downloadable'
     ];
     protected $slugField     = 'slug';
     protected $slugFromField = 'name';
@@ -71,6 +72,10 @@ class Lessons extends BaseModel
         return $this->duration_html = $this->duration ? convertToHoursMinutes($this->duration) : '';
     }
 
+    public function getDownloadableLink(){
+        $url = $this->downloadable ? get_file_url($this->downloadable) : '';
+        return $url;
+    }
     public function getStudyUrlAttribute(){
         $url = $this->file_id ? get_file_url($this->file_id) : $this->url;
         switch ($this->type){

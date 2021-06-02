@@ -16,7 +16,8 @@ export default function() {
                 preview_url:'',
                 file_id:'',
                 active:1,
-                display_order:0
+                display_order:0,
+                downloadable:''
             },
             section_form:{
                 id:'',
@@ -57,7 +58,8 @@ export default function() {
                     preview_url:'',
                     file_id:'',
                     active:1,
-                    display_order:0
+                    display_order:0,
+                    downloadable:''
                 };
                 this.lastSection = section;
                 this.error = [];
@@ -106,6 +108,8 @@ export default function() {
                 var data = Object.assign({},this.lecture_form);
                 data.section_id = me.lastSection ? me.lastSection.id : '';
                 data.course_id = me.course_id;
+                console.log(data)
+                console.log(this.routes.store)
                 $.ajax({
                     url:this.routes.store,
                     data:data,

@@ -51,6 +51,7 @@
             'include',
             'exclude',
             'itinerary',
+            'easypaisa_price',
         ];
         protected $slugField                          = 'slug';
         protected $slugFromField                      = 'title';
@@ -66,7 +67,8 @@
             'exclude' => 'array',
             'itinerary' => 'array',
             'price'=>'float',
-            'sale_price'=>'float'
+            'sale_price'=>'float',
+            'easypaisa_price'=>'float'
         ];
 
         public static function getModelName()

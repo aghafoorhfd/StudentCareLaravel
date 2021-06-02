@@ -60,6 +60,9 @@
                     file_name:'',
                     file_extension:'',
                 };
+                console.log('-------------bookingCorebookingCore--------------');
+                console.log(bookingCore);
+                console.log('-------------bookingCorebookingCore--------------');
                 $.ajax({
                     url:bookingCore.media.get_file+'?id='+id,
                     dataType:'json',

@@ -85,6 +85,10 @@
                                 <label>{{__("File")}} </label>
                                 <file-picker :type="lecture_form.type" v-model="lecture_form.file_id"></file-picker>
                             </div>
+                            <div class="form-group" v-if="['iframe'].indexOf(lecture_form.downloadable) < 0">
+                                <label>{{__("Downloadable Resource")}} </label>
+                                <file-picker :type="'presentation'" v-model="lecture_form.downloadable"></file-picker>
+                            </div>
                             <div class="form-group" >
                                 <label>{{__("File URL")}}</label>
                                 <input type="text"  class="form-control" v-model="lecture_form.url">

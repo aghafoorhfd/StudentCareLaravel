@@ -11,6 +11,12 @@
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
+                    <label class="control-label">{{__("Easypaisa Price")}}</label>
+                    <input type="number" min="0" name="easypaisa_price" class="form-control" value="{{$row->easypaisa_price}}" placeholder="{{__("EasyPaisa Price")}}">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
                     <label class="control-label">{{__("Sale Price")}}</label>
                     <input type="text" name="sale_price" class="form-control" value="{{$row->sale_price}}" placeholder="{{__("Course Sale Price")}}">
                 </div>

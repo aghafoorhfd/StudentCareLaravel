@@ -23,7 +23,7 @@ class LectureController extends AdminController
 
     public function index($id = ''){
         $row = $this->checkItemPermission($id);
-
+        // echo '<pre>';print_r($row.lessons); die;
         if(empty($row)){
             abort(403);
         }
@@ -89,9 +89,10 @@ class LectureController extends AdminController
             'url',
             'duration',
             'type',
-            'display_order'
+            'display_order',
+            'downloadable'
         ],request()->input());
-
+        // print_r($module); die;
         $module->save();
 
         if($module_id){
