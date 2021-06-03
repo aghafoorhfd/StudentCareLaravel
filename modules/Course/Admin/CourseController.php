@@ -155,7 +155,6 @@ class CourseController extends AdminController
         if($row->status == "publish"){
             $row->publish_date = date("Y-m-d H:i:s");
         }
-
         $row->fill($request->input());
 	    $row->create_user = $request->input('create_user');
         $row->default_state = $request->input('default_state',1);

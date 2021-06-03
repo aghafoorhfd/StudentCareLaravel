@@ -883,8 +883,9 @@ class Booking extends BaseModel
                 $c2u = Course2User::firstOrCreate([
                     'course_id'=>$itemObj->object_id,
                     'user_id'=>Auth::id(),
+                    'order_id' => $this->id,
                 ]);
-
+                    
                 if(!$c2u->id){
                     $c2u->order_id = $this->id;
                     $c2u->save();

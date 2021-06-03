@@ -51,7 +51,7 @@
             'include',
             'exclude',
             'itinerary',
-            'easypaisa_price',
+            'easypaisa_price'
         ];
         protected $slugField                          = 'slug';
         protected $slugFromField                      = 'title';

@@ -148,7 +148,6 @@ class BookingController extends \App\Http\Controllers\Controller
             $booking->save();
             $booking->saveItems();
 
-
             $user = Auth::user();
             $user->billing_first_name = $request->input('first_name');
             $user->billing_last_name = $request->input('last_name');

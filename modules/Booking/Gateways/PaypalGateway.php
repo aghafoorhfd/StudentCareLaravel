@@ -162,13 +162,14 @@ class PaypalGateway extends BaseGateway
                 }
                 try{
                     $booking->markAsPaid();
-
+                    // echo '<pre>'; print_r($booking); die;
                 } catch(\Swift_TransportException $e){
                     Log::warning($e->getMessage());
                 }
+                // die('If End');
                 return redirect($booking->getDetailUrl())->with("success", __("You payment has been processed successfully"));
             } else {
-
+                // die('Else');
                 $payment = $booking->payment;
                 if ($payment) {
                     $payment->status = 'fail';
@@ -184,6 +185,7 @@ class PaypalGateway extends BaseGateway
                 return redirect($booking->getDetailUrl())->with("error", __("Payment Failed"));
             }
         }
+        // die('End');
         if (!empty($booking)) {
             return redirect($booking->getDetailUrl(false));
         } else {

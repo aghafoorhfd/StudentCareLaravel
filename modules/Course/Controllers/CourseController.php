@@ -162,6 +162,7 @@
         public function detail(Request $request, $slug)
         {
             $row = $this->courseClass::where('slug', $slug)->where("status", "publish")->with(['translations','hasWishList'])->first();
+            
             if (empty($row)) {
                 return redirect('/');
             }
@@ -178,11 +179,11 @@
                 ->with('lessons')
                 ->orderBy("display_order", "asc")
                 ->get();
-
             $is_student = false;
             if(Auth::check()){
                 $is_student = Auth::user()->isStudentOf($row->id);
             }
+            // echo $is_student; die;
             $data = [
                 'row' => $row,
                 'translation' => $translation,

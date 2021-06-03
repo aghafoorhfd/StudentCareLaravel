@@ -183,9 +183,9 @@ class SectionController extends AdminController
         $section->fillByAttr([
             'name',
             'active',
-            'display_order'
+            'display_order',
         ],request()->input());
-
+        $section->service = 'course';
         $section->save();
 
         if($section_id){

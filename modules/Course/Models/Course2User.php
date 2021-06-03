@@ -9,6 +9,7 @@ class Course2User extends BaseModel
     protected $fillable = [
         'user_id',
         'course_id',
+        'order_id',
     ];
 
 }
