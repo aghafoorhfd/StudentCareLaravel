@@ -167,7 +167,7 @@ class CourseController extends AdminController
             if(is_default_lang($request->query('lang'))){
                 $row->saveTag($request->input('tag_name'), $request->input('tag_ids'));
             }
-            $row->saveMeta($request);
+            $row->saveMeta($request);   
             if($id > 0 ){
                 return back()->with('success',  __('Course updated') );
             }else{
