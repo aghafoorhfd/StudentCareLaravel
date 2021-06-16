@@ -78,27 +78,30 @@ class CategoriesWithItems extends BaseBlock
     public function content($model = [])
     {
         $data = [];
-        if(!empty($model['list_item'])){
-            $data = $model['list_item'];
-            usort($data, function($a, $b) {
-                return $a['order'] <=> $b['order'];
-            });
-            foreach($data as $key => $oneModel){
-                $dataSelected = CourseCategory::where('id',$oneModel['category_id'])->select('name', 'slug')->first();
-                $data[$key]['name'] = $dataSelected->name;
-                $data[$key]['slug'] = $dataSelected->slug;
-                $list = Course::where('category_id',$oneModel['category_id'])->limit($oneModel['number']);
-                if(!empty($oneModel['is_featured']))
-                {
-                    $list->where('is_featured',1);
-                }
-                $data[$key]['data'] = $list->get();
-            }
-        }
+        // if(!empty($model['list_item'])){
+        //     $data = $model['list_item'];
+        //     usort($data, function($a, $b) {
+        //         return $a['order'] <=> $b['order'];
+        //     });
+        //     foreach($data as $key => $oneModel){
+        //         $dataSelected = CourseCategory::where('id',$oneModel['category_id'])->select('name', 'slug')->first();
+        //         $data[$key]['name'] = $dataSelected->name;
+        //         $data[$key]['slug'] = $dataSelected->slug;
+        //         $list = Course::where('category_id',$oneModel['category_id'])->limit($oneModel['number']);
+        //         if(empty($list)){
+        //             continue;
+        //         }
+        //         if(!empty($oneModel['is_featured']))
+        //         {
+        //             $list->where('is_featured',1);
+        //         }
+        //         $data[$key]['data'] = $list->get();
+        //     }
+        // }
         $data = [
             'rows'       => $data,
             'title'      => @$model['title'],
-            'sub_title'      => @$model['sub_title'],
+            'sub_title'  => @$model['sub_title'],
         ];
 
         return view('Course::frontend.blocks.category-with-items.index', $data);

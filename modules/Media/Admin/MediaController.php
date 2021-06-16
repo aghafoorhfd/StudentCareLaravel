@@ -102,7 +102,7 @@ class MediaController extends AdminController
             $testPath = $folder . '/' . $newFileName2 . '.' . $file->getClientOriginalExtension();
             $i++;
         } while (Storage::disk('uploads')->exists($testPath));
-
+        // echo Storage::disk('uploads'); die;
         $check = $file->storeAs( $folder, $newFileName2 . '.' . $file->getClientOriginalExtension(),'uploads');
 
         // Try to compress Images
