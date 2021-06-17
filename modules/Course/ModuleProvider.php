@@ -130,8 +130,8 @@ class ModuleProvider extends ModuleServiceProvider
         return [
             'list_courses'=>"\\Modules\\Course\\Blocks\\ListCourses",
             'form_search_course'=>"\\Modules\\Course\\Blocks\\FormSearchCourse",
-            'list_categories'=>"\\Modules\\Course\\Blocks\\ListCategories",
-            'categories_with_items'=>"\\Modules\\Course\\Blocks\\CategoriesWithItems",
+            // 'list_categories'=>"\\Modules\\Course\\Blocks\\ListCategories",
+            // 'categories_with_items'=>"\\Modules\\Course\\Blocks\\CategoriesWithItems",
         ];
     }
 }

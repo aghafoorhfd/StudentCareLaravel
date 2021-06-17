@@ -21,7 +21,11 @@
                                             <div class="cs_ins_container">
                                                 <div class="courses_big_thumb">
                                                     <div class="thumb">
+                                                        @if(!empty($row->video))
                                                         <iframe class="iframe_video" src="{{ getYoutubeEmbedUrl($row->video) }}" frameborder="0" allowfullscreen></iframe>
+                                                        @else
+                                                        <img src="{{$row->getBannerImageUrlAttribute('full')}}">
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
