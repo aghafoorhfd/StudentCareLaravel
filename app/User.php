@@ -391,7 +391,7 @@
         }
 
         public function isStudentOf($course_id){
-            $user = Course2User::query()->where('course_id',$course_id)->where('user_id',$this->id)->first();
+            $user = Course2User::query()->where('course_id',$course_id)->where('user_id',$this->id)->orderBy('id','desc')->first();
             return $user;
         }
     }

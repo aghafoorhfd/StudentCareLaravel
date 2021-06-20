@@ -598,6 +598,10 @@ class Booking extends BaseModel
         ])->forceDelete();
     }
 
+    public function deleteCourse2User(){
+        Course2User::query()->where('order_id',$this->id)->delete();
+    }
+
     public static function getStatisticChartData($from, $to, $statuses = false, $customer_id = false, $vendor_id = false)
     {
         $data = [
