@@ -183,7 +183,7 @@
             if(Auth::check()){
                 $is_student = Auth::user()->isStudentOf($row->id);
             }
-            // echo $is_student; die;
+            // echo '<pre>';print_r($row); die;
             $data = [
                 'row' => $row,
                 'translation' => $translation,
@@ -200,7 +200,6 @@
                 'is_student'=>$is_student
             ];
             $this->setActiveMenu($row);
-            // echo '<pre>';print_r($section_list); die;
             return view('Course::frontend.detail', $data);
         }
     }

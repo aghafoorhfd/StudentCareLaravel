@@ -60,6 +60,9 @@
                     </ul>
                 @endif
             @endif
+            <div class="tc_price float-left">
+                <span class="text-price">Rs{{ $row->easypaisa_price }}</span>
+            </div>
             <div class="tc_price float-right">
                 <span class="onsale">{{ $row->display_sale_price }}</span>
                 <span class="text-price">{{ $row->display_price }}</span>

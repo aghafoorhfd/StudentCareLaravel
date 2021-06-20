@@ -78,8 +78,15 @@
                         </div>
                         <div class="col-lg-4 col-xl-3">
                             <div class="instructor_pricing_widget csv2">
-                                <div class="price"><span>{{__('Price')}}</span> {{ $row->display_price }} <small>{{ $row->display_sale_price }}</small></div>
-                                @if(!empty($is_student))
+                                <div class="price">
+                                    <span>{{__('Price')}}</span> 
+                                    {{ $row->display_price }} 
+                                    <small>{{ $row->display_sale_price }}</small>
+                                    <br/>
+                                    <span>{{__('Easypaisa Price')}}</span> 
+                                    Rs{{ $row->easypaisa_price }} 
+                                    </div>
+                                @if(!empty($is_student->active))
                                         @if($is_student->active)
                                         <a href="{{route('course.study',['slug'=>$row->slug])}}" class="cart_btnss_white" >{{__('Start now')}}</a>
                                         @else

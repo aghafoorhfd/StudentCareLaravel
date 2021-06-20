@@ -230,6 +230,7 @@ class Template extends BaseModel
             if (!array_key_exists($item['type'], $blocks) or !class_exists($blocks[$item['type']]))
                 continue;
             $item['model'] = isset($item['model']) ? $item['model'] : [];
+            // echo $item['type'].'<br/>'; continue;
             $blockModel = new $blocks[$item['type']]();
             if (method_exists($blockModel, 'content')) {
                 $html .= call_user_func([
