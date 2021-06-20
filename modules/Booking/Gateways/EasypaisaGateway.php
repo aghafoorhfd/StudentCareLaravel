@@ -185,7 +185,7 @@ class EasypaisaGateway extends BaseGateway
     public function getAuthToken($booking)
     {
         date_default_timezone_set("Asia/Karachi");
-        $amount = 1.2;
+        $amount = (float)$booking->total;
         $DateTime 	 = new \DateTime();
         $orderRefNum = $booking->code;//$DateTime->format('YmdHis');
         // echo $booking->code; die;

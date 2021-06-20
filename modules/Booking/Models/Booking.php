@@ -14,6 +14,7 @@ use Modules\Booking\Emails\NewBookingEmail;
 use Modules\Booking\Emails\StatusUpdatedEmail;
 use Modules\Booking\Events\BookingUpdatedEvent;
 use Modules\Course\Models\Course2User;
+use Modules\Course\Models\Course;
 use Modules\Space\Models\Space;
 use Modules\Tour\Models\Tour;
 use App\User;
@@ -872,6 +873,8 @@ class Booking extends BaseModel
         {
             foreach ($items as $item)
             {
+                $course = Course::find($item->id);
+                
                 $itemObj = new BookingItem();
                 $itemObj->booking_id = $this->id;
                 $itemObj->object_id = $item->model->id;
@@ -882,6 +885,12 @@ class Booking extends BaseModel
                 $itemObj->subtotal = $item->price;
                 $itemObj->calculateCommission();
                 $itemObj->save();
+
+                if($this->gateway == 'easypaisa'){
+                    $this->where('id',$this->id)->update([
+                        'total'=> $course->easypaisa_price
+                    ]);
+                }
 
                 // Add Course
                 $c2u = Course2User::firstOrCreate([
