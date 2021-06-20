@@ -389,13 +389,21 @@ class UserController extends FrontendController
         ], 200);
     } else {
 
-        $user = \App\User::create([
-            'first_name'=>strip_tags($request->input('first_name')),
-            'last_name'=>strip_tags($request->input('last_name')),
-            'email'=>strip_tags($request->input('email')),
-            'password'=>Hash::make($request->input('password')),
-            'publish'=>strip_tags($request->input('publish')),
-        ]);
+        // $user = \App\User::create([
+        //     'first_name'=>strip_tags($request->input('first_name')),
+        //     'last_name'=>strip_tags($request->input('last_name')),
+        //     'email'=>strip_tags($request->input('email')),
+        //     'password'=>Hash::make($request->input('password')),
+        //     'publish'=>strip_tags($request->input('publish')),
+        // ]);
+        $user = new \App\User();
+        $user->first_name = strip_tags($request->input('first_name'));
+        $user->last_name = strip_tags($request->input('last_name'));
+        $user->email = strip_tags($request->input('email'));
+        $user->password = Hash::make($request->input('password'));
+        // $user->publish = strip_tags($request->input('publish'));
+        $user->save();
+        
 		event(new Registered($user));
         Auth::loginUsingId($user->id);
         try {
