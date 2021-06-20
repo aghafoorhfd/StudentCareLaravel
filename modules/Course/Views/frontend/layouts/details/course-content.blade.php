@@ -36,11 +36,11 @@
                                                         </a>
                                                         @if(!empty($lesson->getDownloadableLink()))
                                                             <a title="Download File" target="_blank" download="{{$lesson->name}}" href="{{$lesson->getDownloadableLink()}}" class="float-right icon custom-icon cs_time">
-                                                                <img src="/images/VideoDownload.png" />
+                                                                <img src="/images/VideoPlay.png" />
                                                             </a>
                                                         @endif
                                                         <a title="Download File" target="_blank" download="{{$lesson->name}}" href="{{$lesson->getDownloadableLink()}}" class="float-right icon custom-icon cs_time">
-                                                            <img title="Play Video" class="cs_preiew preview_url_lesson icon flaticon-play-button-1 float-right custom-icon" data-title="{{$lesson->name}}" data-url="{{$lesson->getStudyUrlAttribute()}}" src="/images/VideoPlay.png" />
+                                                            <img title="Play Video" class="cs_preiew preview_url_lesson icon flaticon-play-button-1 float-right custom-icon" data-title="{{$lesson->name}}" data-url="{{$lesson->getStudyUrlAttribute()}}" src="/images/VideoDownload.png" />
                                                         </a>
                                                         {{-- <span
                                                             data-title="{{$lesson->name}}"
