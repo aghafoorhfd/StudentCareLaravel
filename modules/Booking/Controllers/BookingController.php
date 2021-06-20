@@ -93,6 +93,7 @@ class BookingController extends \App\Http\Controllers\Controller
         if(!Cart::count()){
            return $this->sendError(__("Your cart is empty"));
         }
+        echo '<pre>'; print_r(Cart); die;
         /**
          * Google ReCapcha
          */
@@ -143,7 +144,11 @@ class BookingController extends \App\Http\Controllers\Controller
             $booking->zip_code = $request->input('zip_code');
             $booking->country = $request->input('country');
             $booking->gateway = $payment_gateway;
-            $booking->total = Cart::total();
+            if($payment_gateway == 'easypaisa'){
+                $booking->total = Cart::total();
+            }else{
+                $booking->total = Cart::total();
+            }
             $booking->customer_id = Auth::id();
             $booking->save();
             $booking->saveItems();

@@ -32,15 +32,15 @@
                                                     <span class="cs_time float-right">{{convertToHoursMinutes($lesson->duration)}}</span>
                                                     @if(($is_student && $is_student->active) || ($key == 0 && $counter == 0))
                                                         <a title="Download Video" target="_blank" download="{{$lesson->name}}" href="{{$lesson->getStudyUrlAttribute()}}" class="float-right icon custom-icon cs_time">
-                                                            <img src="/images/FileDownload.png" />
+                                                            <img src="/images/VideoDownload.png" />
                                                         </a>
                                                         @if(!empty($lesson->getDownloadableLink()))
                                                             <a title="Download File" target="_blank" download="{{$lesson->name}}" href="{{$lesson->getDownloadableLink()}}" class="float-right icon custom-icon cs_time">
-                                                                <img src="/images/VideoPlay.png" />
+                                                                <img src="/images/FileDownload.png" />
                                                             </a>
                                                         @endif
                                                         <a title="Download File" target="_blank" download="{{$lesson->name}}" href="{{$lesson->getDownloadableLink()}}" class="float-right icon custom-icon cs_time">
-                                                            <img title="Play Video" class="cs_preiew preview_url_lesson icon flaticon-play-button-1 float-right custom-icon" data-title="{{$lesson->name}}" data-url="{{$lesson->getStudyUrlAttribute()}}" src="/images/VideoDownload.png" />
+                                                            <img title="Download Video File" class="cs_preiew preview_url_lesson icon flaticon-play-button-1 float-right custom-icon" data-title="{{$lesson->name}}" data-url="{{$lesson->getStudyUrlAttribute()}}" src="/images/VideoPlay.png" />
                                                         </a>
                                                         {{-- <span
                                                             data-title="{{$lesson->name}}"
